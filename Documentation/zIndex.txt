@@ -1,0 +1,4 @@
+0	Floor
+2	Wall/Doors
+5	Player
+100	Room Obscurer

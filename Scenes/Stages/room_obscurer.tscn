@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ianooaqvat2"]
+
+[ext_resource type="Script" uid="uid://bxqhjt3j3lsj8" path="res://Scenes/Stages/room_obscurer.gd" id="1_u1bjo"]
+
+[node name="RoomObscurer" type="Polygon2D"]
+z_index = 100
+color = Color(0.0784314, 0.105882, 0.105882, 1)
+script = ExtResource("1_u1bjo")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://dyri1shxqp3yb"]
+[gd_scene load_steps=24 format=3 uid="uid://dyri1shxqp3yb"]
 
 [ext_resource type="Texture2D" uid="uid://onul7xiuedlf" path="res://Assets/PlayerCharacter/Idle.png" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://dfg3t2dblicl4" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://ctrgnpng1b8pi" path="res://Assets/PlayerCharacter/Walk.png" id="2_6t5aa"]
+[ext_resource type="PackedScene" uid="uid://bfvbcv7jh3jyq" path="res://Scenes/CoreGame/camera_2d.tscn" id="4_mtuoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqql"]
 atlas = ExtResource("1_cvnsp")
@@ -156,6 +157,7 @@ radius = 5.0
 height = 12.0
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 5
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -168,3 +170,5 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_wpjfl")
+
+[node name="Camera2D" parent="." instance=ExtResource("4_mtuoh")]

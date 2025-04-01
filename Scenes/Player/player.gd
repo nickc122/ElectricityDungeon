@@ -7,7 +7,7 @@ class_name Player
 func _ready() -> void:
 	pass
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	movement() #calls the below function
 	move_and_slide() #that mysterious required physics function
 	
@@ -28,5 +28,5 @@ func movement():
 		$AnimatedSprite2D.play("walk_up")
 #		$InteractArea2D.position = Vector2(0, -6)
 	
-	else:
+	elif abs(velocity.x) == (0) and abs(velocity.y) == (0):
 		$AnimatedSprite2D.stop() #stops when the player stops

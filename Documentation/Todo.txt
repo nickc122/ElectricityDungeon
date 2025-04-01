@@ -1,0 +1,6 @@
+Important:
+	
+	
+
+Optional:
+	Have the room_obscurer fade out when a door opens for the first time. Probably just an animation player?
