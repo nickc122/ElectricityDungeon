@@ -28,5 +28,5 @@ func movement():
 		$AnimatedSprite2D.play("walk_up")
 #		$InteractArea2D.position = Vector2(0, -6)
 	
-	elif abs(velocity.x) == (0) and abs(velocity.y) == (0):
+	elif velocity.x == 0 and velocity.y == (0):
 		$AnimatedSprite2D.stop() #stops when the player stops

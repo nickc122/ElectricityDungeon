@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6slhjyb56fnv"]
+[gd_scene load_steps=9 format=3 uid="uid://c6slhjyb56fnv"]
 
 [ext_resource type="Script" uid="uid://j2ytyh1bblxt" path="res://Scenes/Stages/door.gd" id="1_pbmou"]
 [ext_resource type="Texture2D" uid="uid://b0iwhplvls4pr" path="res://Assets/Tiles/TilesetWallSimple.png" id="1_rbf1d"]
@@ -21,14 +21,81 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v17y4"]
 size = Vector2(16, 16)
 
+[sub_resource type="Animation" id="Animation_pbmou"]
+resource_name = "opening"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_4wue2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v17y4"]
+_data = {
+&"RESET": SubResource("Animation_4wue2"),
+&"opening": SubResource("Animation_pbmou")
+}
+
 [node name="Door" type="StaticBody2D"]
 z_index = 2
 collision_mask = 7
 script = ExtResource("1_pbmou")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_4wue2")
 animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_v17y4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_v17y4")
+}

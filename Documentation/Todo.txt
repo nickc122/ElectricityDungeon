@@ -1,6 +1,9 @@
 Important:
-	
+	-Continue to fix connect().
+		-Currently works for connecting one thing directly to another but I haven't found a way this will save me time.
+		-Needs to be easily able to declare which door connects to which obscurer, etc
+	-Create a system to remember which doors and rooms are opened to allow for saving.
+	-Look into connect() and Callable to better connect switches to doors, doors to room obscurers. 
 	
 
 Optional:
-	Have the room_obscurer fade out when a door opens for the first time. Probably just an animation player?
