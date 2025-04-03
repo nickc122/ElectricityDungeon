@@ -4,8 +4,9 @@ class_name Player
 @export var speed: float = 100 #sets the speed multiplied by acceleration
 @export var acceleration: float = 10 #with speed, sets movement as more fluid and natural
 
+
 func _ready() -> void:
-	pass
+	$InteractArea.position = Vector2(0,9) #sets the interaction area to match the autoplay down animation
 	
 func _physics_process(_delta: float) -> void:
 	movement() #calls the below function
@@ -17,16 +18,16 @@ func movement():
 
 	if velocity.x > 0 and abs(velocity.y) < 45: #checks if moving in a direction and not too much in the other direction before...
 		$AnimatedSprite2D.play("walk_right") #switching the animation
-#		$InteractArea2D.position = Vector2(6, 2) #a save-for-later from the tutorial to move the interact zone
-	elif velocity.x < 0 and abs(velocity.y) < 45:
+		$InteractArea.position = Vector2(7,2)
+	elif velocity.x < 0 and abs(velocity.y) < 45: #moves the interaction area on the player
 		$AnimatedSprite2D.play("walk_left")
-#		$InteractArea2D.position = Vector2(-6, 2)
+		$InteractArea.position = Vector2(-7,2)
 	elif velocity.y > 0 and abs(velocity.x) < 45:
 		$AnimatedSprite2D.play("walk_down")
-#		$InteractArea2D.position = Vector2(0, 8)
+		$InteractArea.position = Vector2(0,9)
 	elif velocity.y < 0 and abs(velocity.x) < 45:
 		$AnimatedSprite2D.play("walk_up")
-#		$InteractArea2D.position = Vector2(0, -6)
+		$InteractArea.position = Vector2(0,-8)
 	
 	elif velocity.x == 0 and velocity.y == (0):
 		$AnimatedSprite2D.stop() #stops when the player stops

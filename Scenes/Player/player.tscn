@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dyri1shxqp3yb"]
+[gd_scene load_steps=25 format=3 uid="uid://dyri1shxqp3yb"]
 
 [ext_resource type="Texture2D" uid="uid://onul7xiuedlf" path="res://Assets/PlayerCharacter/Idle.png" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://dfg3t2dblicl4" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
@@ -156,8 +156,11 @@ animations = [{
 radius = 5.0
 height = 12.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtuoh"]
+size = Vector2(12, 12)
+
 [node name="Player" type="CharacterBody2D"]
-z_index = 5
+z_index = 10
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -165,6 +168,7 @@ script = ExtResource("1_xpcdj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_olqyp")
+animation = &"walk_up"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -172,3 +176,12 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_wpjfl")
 
 [node name="Camera2D" parent="." instance=ExtResource("4_mtuoh")]
+
+[node name="InteractArea" type="Area2D" parent="."]
+position = Vector2(0, -8)
+collision_layer = 2
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("RectangleShape2D_mtuoh")
+debug_color = Color(0.854318, 0.346544, 0.338392, 0.42)
