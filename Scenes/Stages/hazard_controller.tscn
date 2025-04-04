@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chwwc7gde4u6s"]
+
+[ext_resource type="Script" uid="uid://c18qa2ibjkvas" path="res://Scenes/Stages/hazard_controller.gd" id="1_4deiw"]
+
+[node name="HazardController" type="Node2D"]
+script = ExtResource("1_4deiw")
