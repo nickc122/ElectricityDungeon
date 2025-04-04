@@ -1,0 +1,1 @@
+Things that cause damage declare it in a varialbe called player_damage that the player receives on impact and turns into a varialbe called damage.

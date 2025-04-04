@@ -1,6 +1,6 @@
 Important:
 
+	-Find a way to notice that hazards shouldn't immidately re-damage player when stepping onto a new tile. Might require redoing hazards as a tiled area or something.
 	-Create a system to remember which doors and rooms are opened to allow for saving.
-	
 
 Optional:

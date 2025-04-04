@@ -11,6 +11,8 @@ func _ready() -> void:
 
 
 func open_door():
-	z_index = 101 #moves door above room obscurer
-	$AnimationPlayer.play("opening") #plays the sliding up animation
-	$CollisionShape2D.disabled = true #remove collision. Maybe just queue_free the door? I'll probably want it to hold info though.
+	if not is_opened:
+		z_index = 101 #moves door above room obscurer
+		$AnimationPlayer.play("opening") #plays the sliding up animation
+		$CollisionShape2D.disabled = true #remove collision. Maybe just queue_free the door? I'll probably want it to hold info though.
+		is_opened = true #stores that the door is opened

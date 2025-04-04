@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dyri1shxqp3yb"]
+[gd_scene load_steps=26 format=3 uid="uid://dyri1shxqp3yb"]
 
 [ext_resource type="Texture2D" uid="uid://onul7xiuedlf" path="res://Assets/PlayerCharacter/Idle.png" id="1_cvnsp"]
 [ext_resource type="Script" uid="uid://dfg3t2dblicl4" path="res://Scenes/Player/player.gd" id="1_xpcdj"]
@@ -159,8 +159,12 @@ height = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtuoh"]
 size = Vector2(12, 12)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mtuoh"]
+radius = 4.0
+height = 10.0
+
 [node name="Player" type="CharacterBody2D"]
-z_index = 10
+z_index = 50
 collision_layer = 2
 collision_mask = 3
 motion_mode = 1
@@ -168,7 +172,7 @@ script = ExtResource("1_xpcdj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_olqyp")
-animation = &"walk_up"
+animation = &"walk_right"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -184,4 +188,20 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
 shape = SubResource("RectangleShape2D_mtuoh")
-debug_color = Color(0.854318, 0.346544, 0.338392, 0.42)
+debug_color = Color(0.141798, 0.627783, 0.439431, 0.42)
+
+[node name="HitboxArea" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_mtuoh")
+debug_color = Color(1, 0.00728945, 0.0498577, 0.42)
+
+[node name="HazardTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
+[connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
+[connection signal="area_exited" from="HitboxArea" to="." method="_on_hitbox_area_area_exited"]
+[connection signal="timeout" from="HazardTimer" to="." method="_on_hazard_timer_timeout"]

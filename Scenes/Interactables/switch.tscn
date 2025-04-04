@@ -1,7 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://gtrhvvjuiw5q"]
+[gd_scene load_steps=8 format=3 uid="uid://gtrhvvjuiw5q"]
 
 [ext_resource type="Texture2D" uid="uid://c4oo86pt55crb" path="res://Assets/Interactables/TilesetDungeon.png" id="1_wjn21"]
 [ext_resource type="Script" uid="uid://bh2yep7e6xccx" path="res://Scenes/Interactables/switch.gd" id="1_x81py"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hi3i"]
+atlas = ExtResource("1_wjn21")
+region = Rect2(64, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x81py"]
 atlas = ExtResource("1_wjn21")
@@ -15,6 +19,14 @@ region = Rect2(96, 32, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_2hi3i")
+}],
+"loop": true,
+"name": &"blue_on",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x81py")
 }],
 "loop": true,
@@ -26,24 +38,24 @@ animations = [{
 "texture": SubResource("AtlasTexture_s647l")
 }],
 "loop": true,
-"name": &"on",
+"name": &"red_on",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t8r4k"]
-size = Vector2(14, 8)
+size = Vector2(14, 15)
 
 [node name="Switch" type="StaticBody2D"]
-z_index = 5
+z_index = 25
 collision_layer = 9
 collision_mask = 6
 script = ExtResource("1_x81py")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hi3i")
-animation = &"off"
+animation = &"blue_on"
 autoplay = "off"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_t8r4k")
