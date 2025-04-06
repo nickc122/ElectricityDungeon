@@ -1,0 +1,109 @@
+[gd_scene load_steps=8 format=3 uid="uid://dayd1lnjnhpec"]
+
+[ext_resource type="Texture2D" uid="uid://buq4xdypii4lh" path="res://Assets/PlayerCharacter/heart.png" id="1_d4kbk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s36ss"]
+atlas = ExtResource("1_d4kbk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqcsj"]
+atlas = ExtResource("1_d4kbk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8xh3"]
+atlas = ExtResource("1_d4kbk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3wt1"]
+atlas = ExtResource("1_d4kbk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pocnh"]
+atlas = ExtResource("1_d4kbk")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x3oao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s36ss")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nqcsj")
+}],
+"loop": true,
+"name": &"0.25",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8xh3")
+}],
+"loop": true,
+"name": &"0.5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3wt1")
+}],
+"loop": true,
+"name": &"0.75",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pocnh")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}]
+
+[node name="HealthBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1072.0
+offset_bottom = -632.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HealthHeart1" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_x3oao")
+animation = &"1"
+centered = false
+
+[node name="HealthHeart2" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 0)
+sprite_frames = SubResource("SpriteFrames_x3oao")
+animation = &"1"
+centered = false
+
+[node name="HealthHeart3" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 0)
+sprite_frames = SubResource("SpriteFrames_x3oao")
+animation = &"1"
+centered = false
+
+[node name="HealthHeart4" type="AnimatedSprite2D" parent="."]
+position = Vector2(48, 0)
+sprite_frames = SubResource("SpriteFrames_x3oao")
+animation = &"1"
+centered = false
+
+[node name="HealthHeart5" type="AnimatedSprite2D" parent="."]
+position = Vector2(64, 0)
+sprite_frames = SubResource("SpriteFrames_x3oao")
+animation = &"1"
+centered = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d4kbk")
+hframes = 5

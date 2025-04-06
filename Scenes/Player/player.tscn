@@ -191,7 +191,8 @@ shape = SubResource("RectangleShape2D_mtuoh")
 debug_color = Color(0.141798, 0.627783, 0.439431, 0.42)
 
 [node name="HitboxArea" type="Area2D" parent="."]
-collision_mask = 16
+collision_layer = 2
+collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea"]
 position = Vector2(0, 1)
@@ -200,8 +201,11 @@ debug_color = Color(1, 0.00728945, 0.0498577, 0.42)
 
 [node name="HazardTimer" type="Timer" parent="."]
 
+[node name="InvincibilityTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
 [connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
 [connection signal="area_entered" from="HitboxArea" to="." method="_on_hitbox_area_area_entered"]
 [connection signal="area_exited" from="HitboxArea" to="." method="_on_hitbox_area_area_exited"]
+[connection signal="body_entered" from="HitboxArea" to="." method="_on_hitbox_area_body_entered"]
 [connection signal="timeout" from="HazardTimer" to="." method="_on_hazard_timer_timeout"]

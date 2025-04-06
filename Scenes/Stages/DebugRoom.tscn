@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://0f14v7s6hr56"]
+[gd_scene load_steps=11 format=4 uid="uid://0f14v7s6hr56"]
 
 [ext_resource type="PackedScene" uid="uid://dyri1shxqp3yb" path="res://Scenes/Player/player.tscn" id="1_8c458"]
 [ext_resource type="PackedScene" uid="uid://gtrhvvjuiw5q" path="res://Scenes/Interactables/switch.tscn" id="1_b7t6h"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cptrqkbhn76xd" path="res://Scenes/Stages/floor_tile_map.tscn" id="4_vog0q"]
 [ext_resource type="PackedScene" uid="uid://bjttbueb8gyap" path="res://Scenes/Stages/floor_spikes.tscn" id="7_cokd1"]
 [ext_resource type="PackedScene" uid="uid://chwwc7gde4u6s" path="res://Scenes/Stages/hazard_controller.tscn" id="8_25umc"]
+[ext_resource type="PackedScene" uid="uid://c7a1di72ocgjs" path="res://Scenes/Interactables/block.tscn" id="9_slr4u"]
 
 [node name="DebugRoom" type="Node2D"]
 
@@ -43,6 +44,9 @@ position = Vector2(58, -26)
 
 [node name="FloorSpikes2" parent="Stage/HazardController" instance=ExtResource("7_cokd1")]
 position = Vector2(74, -26)
+
+[node name="Block" parent="Stage" instance=ExtResource("9_slr4u")]
+position = Vector2(1, -34)
 
 [node name="Player" parent="." instance=ExtResource("1_8c458")]
 

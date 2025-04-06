@@ -4,6 +4,7 @@ class_name Player
 @export var speed: float = 100 #sets the speed multiplied by acceleration
 @export var acceleration: float = 10 #with speed, sets movement as more fluid and natural
 
+
 var interactable = null #sets an empty variable because there's nothing to interact with
 var in_hazard: int = 0 #how many damaging hazards
 var damage: float #declares variable to receive from things that can cause damage
@@ -55,7 +56,7 @@ func interact():
 
 #region Damage
 
-#region Hazards
+#region Hazards (Area2D)
 func _on_hitbox_area_area_exited(area: Area2D) -> void:
 	in_hazard -= 1 #detects that player left area
 	if in_hazard == 0: $HazardTimer.stop() #stops timer if no longer in any hazards
@@ -76,6 +77,16 @@ func _on_hazard_timer_timeout() -> void:
 	
 #endregion
 	
+#region Enemies (Body2D)
+
+func _on_hitbox_area_body_entered(body: Node2D) -> void: #when encountering enemy
+	if $InvincibilityTimer.is_stopped(): #makes sure there hasn't been a recent hit
+		damage = body.player_damage #identifies damage from enemy
+		take_damage(damage) #takes damage
+		$InvincibilityTimer.start() #starts brief invincibility
+
+#endregion
+
 
 func take_damage(damage): #a function to handle all damage
 	Global.player_current_hp -= damage #takes damage from whatever and applies it to HP

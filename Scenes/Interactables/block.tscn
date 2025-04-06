@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7a1di72ocgjs"]
+
+[ext_resource type="Texture2D" uid="uid://c4oo86pt55crb" path="res://Assets/Interactables/TilesetDungeon.png" id="1_lwimo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6m1n"]
+atlas = ExtResource("1_lwimo")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o7w33"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6m1n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgp4p"]
+size = Vector2(14, 15)
+
+[node name="Block" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o7w33")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_pgp4p")
+debug_color = Color(0.910274, 0.23183, 0.476464, 0.42)
