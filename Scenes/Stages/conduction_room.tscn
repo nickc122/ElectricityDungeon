@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://riw0em837fv2"]
+
+[ext_resource type="PackedScene" uid="uid://bwksmfkeio80v" path="res://Scenes/Interactables/conductive_block.tscn" id="1_y27q5"]
+[ext_resource type="PackedScene" uid="uid://dyri1shxqp3yb" path="res://Scenes/Player/player.tscn" id="2_26lrw"]
+[ext_resource type="PackedScene" uid="uid://dj6aww3xmalnx" path="res://Scenes/Interactables/power_source.tscn" id="3_tb7os"]
+
+[node name="ConductionRoom" type="Node2D"]
+
+[node name="ConductiveBlock" parent="." instance=ExtResource("1_y27q5")]
+position = Vector2(-16, 0)
+
+[node name="ConductiveBlock2" parent="." instance=ExtResource("1_y27q5")]
+position = Vector2(0, -16)
+
+[node name="ConductiveBlock3" parent="." instance=ExtResource("1_y27q5")]
+position = Vector2(16, 0)
+
+[node name="ConductiveBlock4" parent="." instance=ExtResource("1_y27q5")]
+position = Vector2(32, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_26lrw")]
+position = Vector2(1, 31)
+
+[node name="PowerSource" parent="." instance=ExtResource("3_tb7os")]
+position = Vector2(-32, 0)

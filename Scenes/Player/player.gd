@@ -6,6 +6,7 @@ class_name Player
 
 
 var interactable = null #sets an empty variable because there's nothing to interact with
+var total_bodies: int = 0
 var in_hazard: int = 0 #how many damaging hazards
 var damage: float #declares variable to receive from things that can cause damage
 var hazard_timer: float #declares this variable for later (maybe can go back into function but this is fine)
@@ -44,10 +45,18 @@ func movement():
 #region Interaction
 
 func _on_interact_area_body_entered(body: Node2D) -> void:
-	if body is Interactable: interactable = body #sets the variable to the encountered body
+	if body is Interactable:
+		interactable = body #sets the variable to the encountered body
+		total_bodies += 1
+		print(interactable)
+		print(total_bodies)
 
 func _on_interact_area_body_exited(body: Node2D) -> void:
-	interactable = null #resets the variable to nothing
+	if body is Interactable:
+		total_bodies -= 1
+		print(total_bodies)
+		if total_bodies == 0:
+			interactable = null #resets the variable to nothing
 	
 func interact():
 	if Input.is_action_just_pressed("primary_action"): #listens for input and...

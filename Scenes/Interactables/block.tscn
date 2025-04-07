@@ -21,6 +21,7 @@ animations = [{
 size = Vector2(14, 15)
 
 [node name="Block" type="RigidBody2D"]
+gravity_scale = 0.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o7w33")
