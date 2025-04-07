@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwksmfkeio80v"]
+[gd_scene load_steps=10 format=3 uid="uid://bwksmfkeio80v"]
 
 [ext_resource type="Script" uid="uid://cgdxc6ucdqcvf" path="res://Scenes/Interactables/conductive_block.gd" id="1_8mbm4"]
 [ext_resource type="Texture2D" uid="uid://c4oo86pt55crb" path="res://Assets/Interactables/TilesetDungeon.png" id="1_fvyva"]
+[ext_resource type="PackedScene" uid="uid://dcmgv1a7v8fd8" path="res://Scenes/Interactables/conduction_area.tscn" id="3_1k77s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8mbm4"]
 atlas = ExtResource("1_fvyva")
@@ -25,7 +26,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8mbm4")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_1k77s")
 }],
 "loop": true,
@@ -52,13 +53,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mbm4"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k77s"]
-size = Vector2(6, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbcu2"]
-size = Vector2(20, 6)
-
 [node name="ConductiveBlock" type="RigidBody2D"]
+collision_layer = 33
 collision_mask = 15
 gravity_scale = 0.0
 script = ExtResource("1_8mbm4")
@@ -66,19 +62,11 @@ script = ExtResource("1_8mbm4")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_repeat = 2
 sprite_frames = SubResource("SpriteFrames_5tyuw")
-animation = &"off"
+animation = &"active"
 autoplay = "off"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8mbm4")
 debug_color = Color(0.994551, 0, 0.220241, 0.42)
 
-[node name="ConductionArea" type="Area2D" parent="." groups=["Conductives"]]
-
-[node name="VertCollisionShape" type="CollisionShape2D" parent="ConductionArea"]
-shape = SubResource("RectangleShape2D_1k77s")
-debug_color = Color(0, 0.623529, 0.521569, 0.419608)
-
-[node name="HorCollisionShape" type="CollisionShape2D" parent="ConductionArea"]
-shape = SubResource("RectangleShape2D_kbcu2")
-debug_color = Color(0, 0.623529, 0.521569, 0.419608)
+[node name="ConductionArea" parent="." instance=ExtResource("3_1k77s")]

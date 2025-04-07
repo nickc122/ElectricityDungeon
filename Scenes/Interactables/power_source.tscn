@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dj6aww3xmalnx"]
+[gd_scene load_steps=7 format=3 uid="uid://dj6aww3xmalnx"]
 
 [ext_resource type="Script" uid="uid://dlkggtiehkrda" path="res://Scenes/Interactables/power_source.gd" id="1_7arcv"]
 [ext_resource type="Texture2D" uid="uid://c4oo86pt55crb" path="res://Assets/Interactables/TilesetDungeon.png" id="1_opmd4"]
+[ext_resource type="PackedScene" uid="uid://dcmgv1a7v8fd8" path="res://Scenes/Interactables/conduction_area.tscn" id="3_m43ke"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7arcv"]
 atlas = ExtResource("1_opmd4")
@@ -21,13 +22,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h68i4"]
 size = Vector2(16, 16)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2kk2"]
-size = Vector2(6, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkrh8"]
-size = Vector2(20, 6)
-
 [node name="PowerSource" type="RigidBody2D" groups=["Conductives"]]
+collision_layer = 33
+collision_mask = 15
 gravity_scale = 0.0
 script = ExtResource("1_7arcv")
 
@@ -38,12 +35,4 @@ animation = &"on"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h68i4")
 
-[node name="ConductionArea" type="Area2D" parent="."]
-
-[node name="VertCollisionShape" type="CollisionShape2D" parent="ConductionArea"]
-shape = SubResource("RectangleShape2D_f2kk2")
-debug_color = Color(0, 0.623529, 0.521569, 0.419608)
-
-[node name="HorCollisionShape" type="CollisionShape2D" parent="ConductionArea"]
-shape = SubResource("RectangleShape2D_wkrh8")
-debug_color = Color(0, 0.623529, 0.521569, 0.419608)
+[node name="ConductionArea" parent="." instance=ExtResource("3_m43ke")]

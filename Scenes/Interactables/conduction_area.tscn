@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcmgv1a7v8fd8"]
+
+[ext_resource type="Script" uid="uid://247lu2tr3m6o" path="res://Scenes/Interactables/conduction_area.gd" id="1_bmsfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2kk2"]
+size = Vector2(6, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkrh8"]
+size = Vector2(20, 6)
+
+[node name="ConductionArea" type="Area2D"]
+collision_layer = 33
+collision_mask = 32
+script = ExtResource("1_bmsfm")
+
+[node name="VertCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f2kk2")
+debug_color = Color(0, 0.623529, 0.521569, 0.419608)
+
+[node name="HorCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wkrh8")
+debug_color = Color(0, 0.623529, 0.521569, 0.419608)
