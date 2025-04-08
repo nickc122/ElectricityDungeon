@@ -1,6 +1,8 @@
 Important:
 
 	-Create a system to remember which doors and rooms are opened to allow for saving.
-	-Sync up animations on conductives. 
+	-Sync up animations on conductives.
+		-utilize frame_progress in the AnimatedSprite2D properties
+		-https://www.reddit.com/r/godot/comments/vi3rzz/sync_animations_over_instanced_scenes/ 
 
 Optional:

@@ -7,16 +7,16 @@
 [node name="ConductionRoom" type="Node2D"]
 
 [node name="ConductiveBlock" parent="." instance=ExtResource("1_y27q5")]
-position = Vector2(-48, 0)
+position = Vector2(-66, 18)
 
 [node name="ConductiveBlock2" parent="." instance=ExtResource("1_y27q5")]
-position = Vector2(-16, 0)
+position = Vector2(-43, 37)
 
 [node name="ConductiveBlock3" parent="." instance=ExtResource("1_y27q5")]
-position = Vector2(-16, -16)
+position = Vector2(21, -5)
 
 [node name="ConductiveBlock4" parent="." instance=ExtResource("1_y27q5")]
-position = Vector2(24, -1)
+position = Vector2(-32, -16)
 
 [node name="Player" parent="." instance=ExtResource("2_26lrw")]
 position = Vector2(1, 31)
